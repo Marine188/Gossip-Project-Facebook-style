@@ -1,0 +1,54 @@
+<% content_for :title, "New gossip" %>
+
+
+<div class='container-fluid'>
+      <hr/>
+      <% if @gossip.errors.any? %>
+        <div class="alert alert-danger" role="alert">
+          Please correct your input
+        </div>
+      <% end %>
+      <div class='container-fluid'>
+        <h1 class='text-white text-center'>T'es sur la bonne page pour dénoncer tes potes </h1>
+      </div>
+      <hr/>
+
+      <hr/>
+      <div class='container-fluid'>
+        <%= form_tag(:controller => 'gossips', :action => 'create', method: "POST") do %>
+
+          <% if  @gossip.errors.include?('title') %>
+            <div class="alert alert-danger" role="alert">
+              <% @gossip.errors.full_messages.each do |message| %>
+                <p><%= message if message.include?('Title') %></p>
+              <% end %>
+              <p><%= text_field_tag 'title', @gossip.title, :class => 'mb-5', :placeholder => 'Incredible title' %></p>
+            </div>
+          <% else %>
+            <p><%= label_tag 'Title' %></p>
+            <p><%= text_field_tag 'title', @gossip.title, :class => 'mb-5', :placeholder => 'Incredible title' %></p>
+          <% end %>
+
+          <% if  @gossip.errors.include?('content') %>
+            <div class="alert alert-danger" role="alert">
+              <% @gossip.errors.full_messages.each do |message| %>
+                <p><%= message if message.include?('Content') %></p>
+              <% end %>
+              <p><%= text_area_tag 'content', @gossip.content, :class => 'w-50 mb-3', :rows => 4, :placeholder =>  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices dui sapien eget mi proin. Cursus risus at ultrices mi tempus imperdiet nulla malesuada pellentesque...' %></p>
+            </div>
+          <% else %>
+            <p><%= label_tag 'Content' %></p>
+            <p><%= text_area_tag 'content', @gossip.content, :class => 'w-50 mb-3', :rows => 4, :placeholder =>  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices dui sapien eget mi proin. Cursus risus at ultrices mi tempus imperdiet nulla malesuada pellentesque...' %></p>
+          <% end %>
+
+          <hr/>
+          <%= submit_tag "Create the gossip", :class => 'btn btn-lg btn-success' %>
+
+        <% end %>
+        <hr/>
+          <%= link_to 'Back to index', gossips_path, :class => 'btn btn-info ' %>
+        </form>
+      </div>
+      <hr/>
+
+    </div>

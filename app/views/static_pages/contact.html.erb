@@ -1,0 +1,38 @@
+<% content_for :title, "Contact" %>
+
+
+<div class='container-fluid'>
+  <hr/>
+  
+  <div class='container-fluid'>
+    <h1 class='text-center text-info'>Please make contact with us ! We don't bite (the first time...)</h1>
+  </div>
+  <hr/>
+
+  <div class='container-fluid my-5'>
+    <hr/>
+    <h4>How to get in touch :</h4>
+    <blockquote class="blockquote">
+      <p class="mb-0">Email us <a href='mailto:gossipproject@email.com'>here</a> or... Give us a call <a href='tel:+33607080910'>here</a> </p>
+    </blockquote>
+    <hr/>
+  </div>
+
+  <hr/>
+  <div class='container-fluid'>
+    <h4>Send us a nice message</h4>
+    <form action='/gossips/new/' method='POST'>
+      <div class='form-group'>
+        <label for='gossip_author'>What's your name ?</label>
+        <input type='text' class="form-control" name='author' placeholder='Your name'/><br/>
+      </div>
+
+      <div class='form-group'>
+        <label for='gossip_content'>What do you want to tell us ?</label>
+        <textarea class="form-control" id="gossip-content" name='content' rows="4" placeholder='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices dui sapien eget mi proin. Cursus risus at ultrices mi tempus imperdiet nulla malesuada pellentesque.'></textarea>
+      </div>
+      <input class='btn btn-lg btn-outline-success' type='submit' value='Send the request'/>
+    </form>
+  </div>
+  <hr/>
+</div>

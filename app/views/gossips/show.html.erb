@@ -1,0 +1,31 @@
+<% content_for :title, "Details of " + @gossip.title %>
+
+
+<div class='container-fluid'>
+  <hr/>
+
+  <div class='container-fluid'>
+    <h1 class='text-center text-primary'><%= @gossip.title %></h1>
+    <h3 class='text-center text-secondary'>Gossip n°<%= @gossip.id %></h3>
+  </div>
+  <hr/>
+
+  <div class='container-fluid'>
+    <h4 class='text-primary'>Auteur</h4>
+    <%= link_to @gossip.user.first_name + ' ' + @gossip.user.last_name + ' (' + @gossip.user.city.name + ')', later_path, :class => 'btn btn-sm btn-outline-info'%>
+    <hr/>
+
+    <h4 class='text-primary'>Contenu</h4>
+    <p><%= @gossip.content %></p>
+
+    <p class='text-secondary'><%= @gossip.created_at.strftime("Created on %-d %B %Y at %Hh %Mm %Ss (UTC)") %></p>
+
+
+
+  </div>
+  <hr/>
+  <%= link_to 'Back to index', gossips_path, :class => 'btn btn-info ' %>
+  <%= link_to 'Edit gossip', later_path, :class => 'btn btn-warning ' %>
+  <%= link_to 'Delete gossip', later_path, :class => 'btn btn-danger ' %>
+
+</div>

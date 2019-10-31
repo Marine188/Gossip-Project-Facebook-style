@@ -1,0 +1,48 @@
+<% content_for :title, "Gossips index" %>
+
+
+<div class='container-fluid'>
+  <% if notice %>
+  <hr/>
+  <div class="alert alert-success" role="alert">
+    <%= notice %>
+  </div>
+  <hr/>
+  <% end %>
+
+  <hr/>
+
+  <div class='container-fluid'>
+    <h1 class='text-center text-info'>Voici les listes des potins <br> XoXo <br> The Hacking Project</h1>
+  </div>
+  <hr/>
+
+  <hr/>
+  <div class='container-fluid mb-5'>
+    <p class='text-center'><%= link_to 'Balance ton potin en cliquant là', new_gossip_path, :class => 'btn btn-light' %></p>
+    </div>
+  </div>
+  <hr/>
+
+  <hr/>
+  <div class='container-fluid'>
+    <h2 class='text-primary text-center text-dark my-4'>Saved gossips</h2>
+    <div class='container-fluid'>
+      <div class ='row px-2 justify-content-around'>
+        <% @gossips.each do |gossip| %>
+        <div class="card col-10 col-md-5 col-lg-8 mx-1 my-3 ">
+          <div class="card-body">
+            <h5 class="card-title ">Potin n°<%= gossip.id.to_s + ' - ' + gossip.title %></h5>
+            <h6 class="card-subtitle mb-2 text-muted text-right">Par <%= gossip.user.first_name + ' ' + gossip.user.last_name %></h6>
+            <p class="card-text text-left"><%= gossip.content[0..210] + '...' %></p>
+            <%= link_to 'More info', gossip_path(gossip), :class => 'btn btn-sm btn-outline-info' %>
+            <%= link_to 'Edit gossip', edit_gossip_path(gossip), :class => 'btn btn-sm btn-outline-warning' %>
+            <%= link_to 'Delete gossip', gossip, method: :delete, data: { confirm: 'Tu es sur de vouloir supprimer ce potin?' }, :class => 'btn btn-sm btn-outline-danger' %>
+          </div>
+        </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+  <hr/>
+</div>

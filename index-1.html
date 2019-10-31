@@ -1,0 +1,94 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Inconnu(e) </title></head><body>
+<h1 id="the-gossip-project-on-track">THE GOSSIP PROJECT : ON TRACK !</h1>
+<h2 id="the-hacking-project-bootcamp-fullstack-web">The Hacking Project - Bootcamp Fullstack Web</h2>
+<h3 id="semaine-6-jour-1">Semaine 6, jour 1.</h3>
+<blockquote>
+<p>On commence à lier les pages entre elles via Rails.</p>
+</blockquote>
+<p>L'app affiche quelques pages statiques, et un peu dynamiques aussi.</p>
+<hr />
+<h2 id="fonctionnalites-presentes">Fonctionnalités présentes</h2>
+<ul>
+<li>affichage des pages 'Team' et 'Contact' en mode moche</li>
+<li>affichage d'un header sur toutes les pages</li>
+<li>affichage d'une page de bienvenue dynamique</li>
+<li>affichage de la page de liste des potins</li>
+<li>affichage de la page de détail d'un potin, possibilité d'aller voir la page de son user</li>
+<li>affichage de la page de détail d'un user, possibilité d'aller voir ses potins</li>
+</ul>
+<hr />
+<h2 id="installation">Installation</h2>
+<p>Cloner le repository : 
+~~~bash
+$ git clone https://github.com/gaael/gossip-project-v1.git
+~~~
+Ou télécharger sa version compressée puis l'extraire.</p>
+<p>Se placer dans le dossier <code>gossip-project-v1-master</code>. Installer les gemmes nécessaires (via <em>Bundler</em>)
+~~~bash
+$ cd path/to/gossip-project-v1-master
+$ bundle install
+~~~</p>
+<p>Réinitialiser la BDD\
+<strong>/!\ fermer toute <code>rails console</code> et autre <code>rails server</code> ouverts avant cette opération, sans quoi Rails va râler...</strong>
+~~~bash
+$ rails db:purge db:migrate db:seed
+~~~</p>
+<p>Remplir la BDD à partir de <code>seeds.rb</code>
+~~~bash
+$ rails db:seed
+~~~</p>
+<p>Lancer le <code>serveur rails</code>
+~~~bash
+$ rails server
+~~~</p>
+<p>Visiter le site en local :\
+<a href="http://localhost:3000/">localhost sur le port 3000</a></p>
+<hr />
+<h2 id="configuration-requise">Configuration requise</h2>
+<p>Version de <strong>Rails</strong> :
+~~~bash
+$ rails-v
+Rails 5.2.3
+~~~</p>
+<p>Version de <strong>Ruby</strong> :
+~~~bash
+$ ruby -v
+ruby 2.5.1
+~~~</p>
+<p>Version de <strong>Bundler</strong> :
+~~~bash
+$ bundle -v
+Bundler version 2.0.2
+~~~</p>
+<p>Gemmes utilisées (source : <em>Gemfile</em>) :\
+Gemmes ajoutées au <strong>Gemfile</strong> de Rails :
+~~~ruby
+group :added_gems do
+  # Enables 'realistic' and 'effortless' seed
+  gem 'faker'
+  # Displays nice tables in Rails Console
+  gem 'table_print'
+end
+~~~</p>
+<hr />
+<h2 id="testing">Testing</h2>
+<p>None yet.</p>
+<hr />
+<h2 id="historique-des-versions">Historique des versions</h2>
+<ul>
+<li>version 0.06 : ajout liens entre pages user et gossips</li>
+<li>version 0.05 : ajout page show pour un user</li>
+<li>version 0.04 : ajout page show pour un potin</li>
+<li>version 0.03 : ajout page de bienvenue dynamique</li>
+<li>version 0.02 : ajout header sur toutes les pages</li>
+<li>version 0.01 : ajout pages 'Team' et 'Contact' avec leurs routes</li>
+<li>version 0.00 : repo init</li>
+</ul>
+<hr />
+<h2 id="credits">Credits</h2>
+<p>Les ressources de <a href="https://www.thehackingproject.org/">The Hacking Project</a>\
+Les <a href="https://guides.rubyonrails.org/index.html">guides de Rails</a></p>
+<h2 id="meta">Meta</h2>
+<p>Gaël Dubois - <a href="https://twitter.com/GalDUBOIS1">Twitter</a> - <a href="https://github.com/gaael/">GitHub</a>\
+Distribué sous license GNU-GPLv3. Voir <code>LICENCE.txt</code> pour plus d'informations.</p>
+</body></html>

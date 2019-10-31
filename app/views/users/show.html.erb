@@ -1,0 +1,32 @@
+<% content_for :title, "Profile of " + @user.first_name %>
+
+
+<div class='container-fluid'>
+  <hr/>
+
+  <div class='container-fluid'>
+    <h3 class='text-primary'>Le nom : <%= @user.first_name %> <%= @user.last_name %></h3>
+    <h5 class='text-secondary'><%= @user.age %> years old, from <%= link_to @user.city.name, later_path, :class => 'btn btn-outline-secondary' %></h4>
+  </div>
+  <hr/>
+
+  <div class='container-fluid'>
+    <h4 class='text-primary'>Contact</h4>
+    <p><%= link_to @user.email, 'mailto:' + @user.email, :class => 'btn btn-outline-dark' %></p>
+    <hr/>
+
+    <h4 class='text-primary'>Description</h4>
+    <p><%= @user.description %></p>
+    <hr/>
+
+    <h4 class='text-primary'>Gossips</h4>
+    <p><% @user.gossips.each do |gossip| %>
+        <%= link_to gossip.title, gossip_path(gossip), :class => 'btn btn-outline-info'%>
+      <% end %>
+    </p>
+  </div>
+
+  <hr/>
+  <%= link_to 'Back to index', gossips_path, :class => 'btn btn-info ' %>
+  <hr/>
+</div>
