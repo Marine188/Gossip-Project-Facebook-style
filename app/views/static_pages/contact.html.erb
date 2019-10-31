@@ -1,38 +1,68 @@
 <% content_for :title, "Contact" %>
 
-
 <div class='container-fluid'>
-  <hr/>
-  
-  <div class='container-fluid'>
-    <h1 class='text-center text-info'>Please make contact with us ! We don't bite (the first time...)</h1>
-  </div>
-  <hr/>
-
-  <div class='container-fluid my-5'>
-    <hr/>
-    <h4>How to get in touch :</h4>
-    <blockquote class="blockquote">
-      <p class="mb-0">Email us <a href='mailto:gossipproject@email.com'>here</a> or... Give us a call <a href='tel:+33607080910'>here</a> </p>
-    </blockquote>
-    <hr/>
-  </div>
-
-  <hr/>
-  <div class='container-fluid'>
-    <h4>Send us a nice message</h4>
-    <form action='/gossips/new/' method='POST'>
-      <div class='form-group'>
-        <label for='gossip_author'>What's your name ?</label>
-        <input type='text' class="form-control" name='author' placeholder='Your name'/><br/>
-      </div>
-
-      <div class='form-group'>
-        <label for='gossip_content'>What do you want to tell us ?</label>
-        <textarea class="form-control" id="gossip-content" name='content' rows="4" placeholder='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices dui sapien eget mi proin. Cursus risus at ultrices mi tempus imperdiet nulla malesuada pellentesque.'></textarea>
-      </div>
-      <input class='btn btn-lg btn-outline-success' type='submit' value='Send the request'/>
-    </form>
-  </div>
-  <hr/>
+  <h1 class='text-center text-info'>Nous contacter ! </h1>
 </div>
+<hr/>
+
+<form id="contact-form" method="post" action="contact.php" role="form">
+
+    <div class="messages"></div>
+
+    <div class="controls">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="form_name">Prénom *</label>
+                    <input id="form_name" type="text" name="name" class="form-control" placeholder="Merci de l'écrire ici *" required="required" data-error="Firstname is required.">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="form_lastname">Nom *</label>
+                    <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Même chose pour le nom de famille *" required="required" data-error="Lastname is required.">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="form_email">Email *</label>
+                    <input id="form_email" type="email" name="email" class="form-control" placeholder="Toujours pareil *" required="required" data-error="Valid email is required.">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="form_need">Précise ta demande *</label>
+                    <select id="form_need" name="need" class="form-control" required="required" data-error="Please specify your need.">
+                        <option value=""></option>
+                        <option value="Request quotation">Une remarque / amélioration</option>
+                        <option value="Request order status">Tu veux travailler pour nous</option>
+                        <option value="Request copy of an invoice">Tester le formulaire qui ne marche pas</option>
+                        <option value="Other">Autre</option>
+                    </select>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="form_message">Message *</label>
+                    <textarea id="form_message" name="message" class="form-control" placeholder="Message for me *" rows="4" required="required" data-error="Please, leave us a message."></textarea>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <input type="submit" class="btn btn-success btn-send" value="Send message">
+            </div>
+        </div>
+
+        </div>
+    </div>
+
+</form>

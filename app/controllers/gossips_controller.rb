@@ -4,8 +4,7 @@ class GossipsController < ApplicationController
   # GET /gossips
   # GET /gossips.json
   def index
-        # Méthode qui récupère tous les potins et les envoie à la view index (index.html.erb) pour affichage
-    @gossips = Gossip.all
+    @gossips = Gossip.all # Méthode qui récupère tous les potins et les envoie à la view index (index.html.erb) pour affichage
   end
 
   # GET /gossips/1

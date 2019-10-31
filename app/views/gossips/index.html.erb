@@ -1,4 +1,4 @@
-<% content_for :title, "Gossips index" %>
+
 
 
 <div class='container-fluid'>
@@ -33,7 +33,7 @@
         <div class="card col-10 col-md-5 col-lg-8 mx-1 my-3 ">
           <div class="card-body">
             <h5 class="card-title ">Potin n°<%= gossip.id.to_s + ' - ' + gossip.title %></h5>
-            <h6 class="card-subtitle mb-2 text-muted text-right">Par <%= gossip.user.first_name + ' ' + gossip.user.last_name %></h6>
+            
             <p class="card-text text-left"><%= gossip.content[0..210] + '...' %></p>
             <%= link_to 'More info', gossip_path(gossip), :class => 'btn btn-sm btn-outline-info' %>
             <%= link_to 'Edit gossip', edit_gossip_path(gossip), :class => 'btn btn-sm btn-outline-warning' %>
